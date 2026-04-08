@@ -1,0 +1,42 @@
+name : email-triage-env
+version : 0.0.1
+description: >
+  Context-aware email triage environment.
+  Agent triages emails based on user persona
+  and life context. 3 tasks: easy, medium, hard.
+
+tasks:
+  - name : relevance_check 
+    difficulty : easy 
+    description : Agent must classify email as relevant or not relevant
+    
+  - name : priority_classification
+    difficulty : medium 
+    description : Classify relevance and priority (urgent,normal,low)
+
+  - name : full_triage
+    difficulty : hard
+    description : Fully triage with Context-based reasoning 
+
+observation:
+  type: object 
+  fields:
+   - email_id 
+   - subject 
+   - body 
+   - persona
+   - context 
+   - task_level 
+
+action_space:
+  type: object 
+  fields:
+   - relevance 
+   - priority
+   - reason 
+
+reward_range: [0.0,1.0]
+max_steps: 10 
+
+
+   
