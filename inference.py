@@ -166,8 +166,8 @@ def extract_json(text: str) -> str:
     return text
 
 @retry(
-    stop=stop_after_attempt(10),
-    wait=wait_exponential(multiplier=1, min=2, max=60),
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=2, max=10),
     reraise=True,
 )
 async def _call_api(client: AsyncOpenAI, prompt: str, task_level: str) -> str:
@@ -179,6 +179,7 @@ async def _call_api(client: AsyncOpenAI, prompt: str, task_level: str) -> str:
         ],
         temperature=0.1,
         max_tokens=150,
+        timeout=15.0,
     )
     return response.choices[0].message.content or "{}"
 
@@ -259,7 +260,12 @@ async def run_task(client, task_level: str) -> float:
 
 # ── Main — Run All 3 Tasks in Parallel ───────────────────
 async def main():
-    client = AsyncOpenAI(api_key=HF_TOKEN, base_url=API_BASE_URL)
+    client = AsyncOpenAI(
+        api_key=HF_TOKEN or "dummy-key-for-test", 
+        base_url=API_BASE_URL,
+        timeout=15.0,
+        max_retries=2
+    )
 
     print("\n" + "="*50)
     print("EMAIL TRIAGE BASELINE EVALUATION")
