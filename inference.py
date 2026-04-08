@@ -69,8 +69,14 @@ if (not API_BASE_URL or "your_openai_or_hf_token_here" in str(HF_TOKEN)) and os.
 
 TASK_NAME = "email-triage"
 BENCHMARK = "email-triage"
-MAX_STEPS = 8
+MAX_STEPS = 5              # Reduced from 8 to 5 for faster evaluation
 SUCCESS_SCORE_THRESHOLD = 0.6
+
+# ── Timeouts (aggressive to stay under 20min limit) ─────
+API_TIMEOUT = 6.0          # Per LLM call timeout (seconds) - aggressive
+STEP_TIMEOUT = 15.0        # Per step timeout (includes LLM + processing)
+MAX_RETRIES = 2            # Max retry attempts
+GLOBAL_TIMEOUT = 900       # Global script timeout (15 minutes = 900 seconds)
 
 # ── Semaphore — max 3 concurrent API calls ────────────────
 semaphore = asyncio.Semaphore(3)
@@ -166,8 +172,8 @@ def extract_json(text: str) -> str:
     return text
 
 @retry(
-    stop=stop_after_attempt(3),
-    wait=wait_exponential(multiplier=1, min=2, max=10),
+    stop=stop_after_attempt(MAX_RETRIES),
+    wait=wait_exponential(multiplier=1, min=1, max=4),
     reraise=True,
 )
 async def _call_api(client: AsyncOpenAI, prompt: str, task_level: str) -> str:
@@ -178,8 +184,8 @@ async def _call_api(client: AsyncOpenAI, prompt: str, task_level: str) -> str:
             {"role": "user", "content": prompt}
         ],
         temperature=0.1,
-        max_tokens=150,
-        timeout=15.0,
+        max_tokens=100,  # Reduced from 150 for faster responses
+        timeout=API_TIMEOUT,
     )
     return response.choices[0].message.content or "{}"
 
@@ -223,24 +229,31 @@ async def run_task(client, task_level: str) -> float:
         obs = await env.reset()
 
         for step in range(1, MAX_STEPS + 1):
+            try:
+                # ask LLM with semaphore + retry + step timeout
+                action = await asyncio.wait_for(
+                    ask_llm_safe(client, obs, task_level),
+                    timeout=STEP_TIMEOUT
+                )
 
-            # ask LLM with semaphore + retry
-            action = await ask_llm_safe(client, obs, task_level)
+                obs, reward, done, info = await env.step(action)
 
-            obs, reward, done, info = await env.step(action)
+                rewards.append(reward.value)
+                steps_taken = step
 
-            rewards.append(reward.value)
-            steps_taken = step
+                log_step(
+                    step=step,
+                    action=f"{action.relevance}/{action.priority}",
+                    reward=reward.value,
+                    done=done,
+                    error=None
+                )
 
-            log_step(
-                step=step,
-                action=f"{action.relevance}/{action.priority}",
-                reward=reward.value,
-                done=done,
-                error=None
-            )
+                if done:
+                    break
 
-            if done:
+            except asyncio.TimeoutError:
+                print(f"[WARN] Step {step} timed out after {STEP_TIMEOUT}s, skipping remaining steps", flush=True)
                 break
 
         score = sum(rewards) / len(rewards) if rewards else 0.0
@@ -259,19 +272,20 @@ async def run_task(client, task_level: str) -> float:
     return score
 
 # ── Main — Run All 3 Tasks in Parallel ───────────────────
-async def main():
+async def _run_with_timeout():
+    """Run tasks with a global timeout to ensure we don't exceed evaluation limits."""
     client = AsyncOpenAI(
-        api_key=HF_TOKEN or "dummy-key-for-test", 
+        api_key=HF_TOKEN or "dummy-key-for-test",
         base_url=API_BASE_URL,
-        timeout=15.0,
-        max_retries=2
+        timeout=API_TIMEOUT,
+        max_retries=1  # Let tenacity handle retries
     )
 
     print("\n" + "="*50)
     print("EMAIL TRIAGE BASELINE EVALUATION")
     print("="*50 + "\n")
 
-    # Run sequentially to avoid rate limits
+    # Run tasks sequentially to avoid rate limits
     results = []
     for level in ["easy", "medium", "hard"]:
         results.append(await run_task(client, level))
@@ -284,6 +298,14 @@ async def main():
     for task, score in scores.items():
         print(f"{task:10} → {score:.3f}")
     print(f"{'AVERAGE':10} → {sum(scores.values())/3:.3f}")
+
+
+async def main():
+    try:
+        await asyncio.wait_for(_run_with_timeout(), timeout=GLOBAL_TIMEOUT)
+    except asyncio.TimeoutError:
+        print("\n[ERROR] Evaluation exceeded global timeout limit. Exiting.", flush=True)
+        raise SystemExit(1)
 
 if __name__ == "__main__":
     asyncio.run(main())

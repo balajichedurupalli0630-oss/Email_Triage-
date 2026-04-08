@@ -36,7 +36,7 @@ action_space:
    - reason 
 
 reward_range: [0.0,1.0]
-max_steps: 10 
+max_steps: 5 
 
 
    
