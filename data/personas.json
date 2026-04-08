@@ -1,0 +1,518 @@
+{
+  "Student": {
+    "context": {
+      "recent_searches": [
+        "google interview questions",
+        "amazon internship apply",
+        "system design basics",
+        "leetcode problems",
+        "how to write a resume",
+        "campus placement tips"
+      ],
+      "recent_purchases": [
+        "leetcode premium",
+        "geeksforgeeks course"
+      ],
+      "upcoming_events": [
+        "Google interview tomorrow",
+        "Amazon internship deadline today",
+        "Data structures exam next week",
+        "Resume submission deadline Friday"
+      ],
+      "active_relationships": [
+        "Google HR",
+        "college placement cell",
+        "professor",
+        "Amazon recruiter"
+      ]
+    },
+    "emails": [
+      {
+        "subject": "Reminder: Prepare for Your Upcoming Interview",
+        "body": "This is a reminder that your interview is scheduled for tomorrow. Please confirm your availability.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User recently searched 'google interview questions' and has Google interview tomorrow"
+      },
+      {
+        "subject": "Last Chance: Apply for Amazon Internship Today",
+        "body": "The Amazon internship application deadline is today. Submit your application now.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User recently searched 'amazon internship apply' and has internship deadline today"
+      },
+      {
+        "subject": "Placement Cell Update: TCS and Infosys Visiting Next Week",
+        "body": "Dear student, TCS and Infosys will be visiting campus next week for placements. Register by Friday.",
+        "label": "relevant",
+        "priority": "normal",
+        "reason": "User is in placement season and actively searching for campus placement tips"
+      },
+      {
+        "subject": "Your Google Interview is Confirmed for Tomorrow 10 AM",
+        "body": "Dear candidate, your interview with Google is confirmed for tomorrow at 10 AM IST. Please join via the link below.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched 'google interview questions' and has Google interview tomorrow"
+      },
+      {
+        "subject": "Resume Submission Deadline: Friday EOD",
+        "body": "This is a reminder that your resume must be submitted to the placement portal by Friday end of day.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched 'how to write a resume' and has resume submission deadline on Friday"
+      },
+      {
+        "subject": "System Design Round Preparation Tips",
+        "body": "Based on your upcoming interview, here are some system design tips from our mentors to help you prepare.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched 'system design basics' and has Google interview tomorrow"
+      },
+      {
+        "subject": "Amazon Recruiter: Next Steps After Application",
+        "body": "Thank you for applying to Amazon internship. Here are the next steps in your application process.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched 'amazon internship apply' and deadline is today"
+      },
+      {
+        "subject": "LeetCode Premium: Your Weekly Progress Report",
+        "body": "You solved 12 problems this week. Keep going! Your Google interview is coming up.",
+        "label": "relevant",
+        "priority": "normal",
+        "reason": "User purchased leetcode premium and has Google interview tomorrow"
+      },
+      {
+        "subject": "Data Structures Exam Syllabus Released",
+        "body": "The syllabus for your upcoming Data Structures exam has been released. Please check the portal.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has Data structures exam next week"
+      },
+      {
+        "subject": "Mock Interview Scheduled: Tomorrow 8 AM",
+        "body": "Your mock interview session is scheduled for tomorrow 8 AM before your actual Google interview.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched 'google interview questions' and has interview tomorrow"
+      },
+      {
+        "subject": "GeeksForGeeks: Complete These Topics Before Your Interview",
+        "body": "Based on Google's interview pattern, complete these topics before tomorrow: Arrays, Trees, Dynamic Programming.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User purchased geeksforgeeks course and has Google interview tomorrow"
+      },
+      {
+        "subject": "Campus Placement Drive: Microsoft Hiring",
+        "body": "Microsoft is visiting campus next month for full-time hiring. Register your interest now.",
+        "label": "relevant",
+        "priority": "normal",
+        "reason": "User searched campus placement tips and is in active placement season"
+      },
+      {
+        "subject": "Professor: Assignment Submission Reminder",
+        "body": "This is a reminder from your professor that the assignment is due next week along with your exam.",
+        "label": "relevant",
+        "priority": "normal",
+        "reason": "User has data structures exam next week and professor is an active relationship"
+      },
+      {
+        "subject": "Internship Offer Letter from Startup XYZ",
+        "body": "Congratulations! We are pleased to offer you an internship position. Please review and sign the offer letter.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched 'amazon internship apply' showing active job search"
+      },
+      {
+        "subject": "Interview Feedback: Your Last Round Performance",
+        "body": "Here is the feedback from your last interview round. Review it before your upcoming Google interview.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has Google interview tomorrow and searched google interview questions"
+      },
+      {
+        "subject": "Zomato: 50% off your next order!",
+        "body": "Hey! Use code ZOMATO50 to get 50% off your next food order. Valid today only!",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Food offer has no relation to user's current context of job searching and interviews"
+      },
+      {
+        "subject": "Netflix: Your free trial is ending soon",
+        "body": "Your Netflix free trial ends in 3 days. Subscribe now to keep watching.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Netflix subscription unrelated to user's placement season context"
+      },
+      {
+        "subject": "Myntra Sale: Flat 60% off on all clothes",
+        "body": "Shop the biggest fashion sale of the year. Flat 60% off on all brands this weekend.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Fashion sale completely unrelated to interview preparation and placement context"
+      },
+      {
+        "subject": "Cricket Fantasy League: Join Now and Win!",
+        "body": "Join our fantasy cricket league and win exciting prizes every match day.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Cricket fantasy game unrelated to student's interview and exam preparation"
+      },
+      {
+        "subject": "Gym Membership: Special Student Discount This Month",
+        "body": "Get 40% off on annual gym membership. Special discount for students this month only.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Gym membership offer unrelated to placement season and interview preparation"
+      }
+    ]
+  },
+  "Professional": {
+    "context": {
+      "recent_searches": [
+        "home loan EMI calculator",
+        "project management tools",
+        "agile sprint planning",
+        "how to handle missed deadlines",
+        "performance review tips",
+        "work from home productivity"
+      ],
+      "recent_purchases": [
+        "project management software",
+        "office supplies",
+        "online productivity course"
+      ],
+      "upcoming_events": [
+        "project deadline tomorrow",
+        "team meeting today 3pm",
+        "performance review next week",
+        "client presentation Friday",
+        "EMI due date this week"
+      ],
+      "active_relationships": [
+        "manager",
+        "client",
+        "bank loan department",
+        "team members",
+        "HR department"
+      ]
+    },
+    "emails": [
+      {
+        "subject": "Urgent: Project Deliverable Due Tomorrow",
+        "body": "Please ensure all project deliverables are submitted by tomorrow 9am. Client is waiting.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has project deadline tomorrow and searched project management tools"
+      },
+      {
+        "subject": "Your EMI Payment is Due This Week",
+        "body": "Dear customer, your home loan EMI of Rs.25,000 is due this week. Please ensure sufficient balance.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User recently searched home loan EMI calculator indicating active loan"
+      },
+      {
+        "subject": "Team Meeting Agenda for Today 3 PM",
+        "body": "Please find the agenda for today's 3pm team meeting. Kindly come prepared with your sprint updates.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has team meeting today at 3pm in upcoming events"
+      },
+      {
+        "subject": "Manager: Performance Review Scheduled Next Week",
+        "body": "Your performance review is scheduled for next week. Please prepare your self-assessment document.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched performance review tips and has performance review next week"
+      },
+      {
+        "subject": "Client Presentation: Final Slides Needed by Friday",
+        "body": "The client presentation is on Friday. Please send your finalized slides by Thursday EOD for review.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has client presentation on Friday and searched project management tools"
+      },
+      {
+        "subject": "Sprint Planning Meeting: Tomorrow 11 AM",
+        "body": "Our next agile sprint planning session is tomorrow at 11 AM. Please come with your task estimates.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched agile sprint planning and has project deadline tomorrow"
+      },
+      {
+        "subject": "Bank: Your Home Loan Statement for This Month",
+        "body": "Your monthly home loan statement is ready. EMI of Rs.25,000 is due this week.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched home loan EMI calculator and has EMI due this week"
+      },
+      {
+        "subject": "HR: Submit Your Timesheet Before Friday",
+        "body": "Please submit your timesheet for this month before Friday to ensure timely salary processing.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has client presentation Friday and HR is an active relationship"
+      },
+      {
+        "subject": "Project Management Software: Your License Renews Tomorrow",
+        "body": "Your project management software license renews tomorrow. Ensure billing details are updated.",
+        "label": "relevant",
+        "priority": "normal",
+        "reason": "User recently purchased project management software and has project deadline tomorrow"
+      },
+      {
+        "subject": "Team Member: Blocker on Project Task",
+        "body": "Hi, I have a blocker on the main project task. Can we sync before the deadline tomorrow?",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has project deadline tomorrow and team members are active relationships"
+      },
+      {
+        "subject": "Work From Home Productivity Tips: New Article",
+        "body": "Based on your interest, here is a new article on staying productive while working from home.",
+        "label": "relevant",
+        "priority": "normal",
+        "reason": "User searched work from home productivity indicating remote work situation"
+      },
+      {
+        "subject": "Manager Feedback: Please Review Project Progress",
+        "body": "Please share your project progress update before our team meeting today at 3pm.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has team meeting today 3pm and project deadline tomorrow"
+      },
+      {
+        "subject": "Client: Changes Requested in Project Deliverable",
+        "body": "The client has requested some changes in the deliverable due tomorrow. Please check the updated requirements.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has project deadline tomorrow and client is an active relationship"
+      },
+      {
+        "subject": "Productivity Course: Your Next Module is Ready",
+        "body": "Your next module in the online productivity course is ready. Complete it to improve your workflow.",
+        "label": "relevant",
+        "priority": "normal",
+        "reason": "User purchased online productivity course and searched work from home productivity"
+      },
+      {
+        "subject": "Bank: Late EMI Warning - Action Required",
+        "body": "Your EMI payment is overdue. Please make the payment immediately to avoid penalty charges.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched home loan EMI calculator and EMI is due this week"
+      },
+      {
+        "subject": "Big Billion Days Sale: Up to 80% off!",
+        "body": "Shop now and get up to 80% off on electronics, fashion and more!",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Shopping sale unrelated to user's work deadlines and EMI context"
+      },
+      {
+        "subject": "You won a free trip to Goa!",
+        "body": "Congratulations! You have been selected for a free trip to Goa. Click here to claim.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Spam prize email unrelated to professional work context"
+      },
+      {
+        "subject": "Swiggy: Order dinner and get 30% cashback",
+        "body": "Hungry? Order from Swiggy tonight and get 30% cashback on your first order this week.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Food delivery offer unrelated to project deadlines and performance review"
+      },
+      {
+        "subject": "IPL Fantasy: Build Your Team Now",
+        "body": "IPL season is here! Build your fantasy team and win big prizes every match.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Fantasy cricket game unrelated to professional's urgent work deadlines"
+      },
+      {
+        "subject": "Amazon: Your wishlist items are on sale",
+        "body": "Items in your wishlist are now on sale. Grab them before they run out of stock.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Shopping notification unrelated to project delivery and EMI payment context"
+      }
+    ]
+  },
+  "Business Owner": {
+    "context": {
+      "recent_searches": [
+        "bulk raw material suppliers",
+        "GST filing deadline 2025",
+        "client requirement document",
+        "business loan options",
+        "inventory management software",
+        "how to handle supply shortage"
+      ],
+      "recent_purchases": [
+        "raw materials",
+        "accounting software",
+        "inventory management tool"
+      ],
+      "upcoming_events": [
+        "client meeting tomorrow",
+        "GST filing deadline 3 days",
+        "supplier delivery today",
+        "business loan review next week",
+        "new product launch Friday"
+      ],
+      "active_relationships": [
+        "supplier",
+        "client",
+        "CA accountant",
+        "bank relationship manager",
+        "business partner"
+      ]
+    },
+    "emails": [
+      {
+        "subject": "GST Filing Deadline Reminder: 3 Days Left",
+        "body": "Dear taxpayer, your GST filing deadline is in 3 days. File now to avoid penalties.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched GST filing deadline and has filing deadline in 3 days"
+      },
+      {
+        "subject": "Supplier Alert: Raw Material Stock Running Low",
+        "body": "Dear customer, the raw materials you ordered are running low in stock. Place your order now.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User recently purchased raw materials and searched bulk suppliers"
+      },
+      {
+        "subject": "Client Meeting Confirmation for Tomorrow",
+        "body": "This is a confirmation for your client meeting scheduled for tomorrow at 11am.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has client meeting tomorrow in upcoming events"
+      },
+      {
+        "subject": "CA Accountant: Documents Needed for GST Filing",
+        "body": "Please send all invoices and purchase records by tomorrow for GST filing in 3 days.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched GST filing deadline and CA accountant is an active relationship"
+      },
+      {
+        "subject": "Supplier: Delivery Scheduled for Today",
+        "body": "Your raw material order is out for delivery today. Please ensure someone is available to receive it.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has supplier delivery today and recently purchased raw materials"
+      },
+      {
+        "subject": "Bank: Business Loan Review Appointment Next Week",
+        "body": "Your business loan review is scheduled for next week. Please bring your financial statements.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched business loan options and has loan review next week"
+      },
+      {
+        "subject": "Client: Updated Requirements for Tomorrow's Meeting",
+        "body": "Please review the updated project requirements before our meeting tomorrow at 11am.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has client meeting tomorrow and searched client requirement document"
+      },
+      {
+        "subject": "New Bulk Supplier: Better Rates on Raw Materials",
+        "body": "We offer bulk raw materials at 20% lower rates. Compare and switch today.",
+        "label": "relevant",
+        "priority": "normal",
+        "reason": "User searched bulk raw material suppliers indicating need for better supply options"
+      },
+      {
+        "subject": "Inventory Management Software: Your Trial Expires Tomorrow",
+        "body": "Your trial of the inventory management software expires tomorrow. Upgrade to continue tracking stock.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User purchased inventory management tool and has supplier delivery today"
+      },
+      {
+        "subject": "Business Partner: Discuss Product Launch Strategy",
+        "body": "Can we sync today to discuss the product launch strategy before Friday's launch?",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has new product launch on Friday and business partner is an active relationship"
+      },
+      {
+        "subject": "Supply Shortage Advisory: Alternative Vendors List",
+        "body": "Due to current supply shortages, here is a list of alternative vendors for your raw materials.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched how to handle supply shortage and has supplier delivery today"
+      },
+      {
+        "subject": "GST Portal: Your Filing Window Opens Today",
+        "body": "The GST filing window is now open. File your returns before the deadline in 3 days.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User searched GST filing deadline 2025 and has filing deadline in 3 days"
+      },
+      {
+        "subject": "Accounting Software: Monthly Report Ready",
+        "body": "Your monthly financial report is ready. Review it before your business loan meeting next week.",
+        "label": "relevant",
+        "priority": "normal",
+        "reason": "User purchased accounting software and has business loan review next week"
+      },
+      {
+        "subject": "Client Invoice: Payment Overdue",
+        "body": "The invoice from last month is overdue. Please process payment before tomorrow's meeting.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has client meeting tomorrow and client is an active relationship"
+      },
+      {
+        "subject": "Product Launch Checklist: Friday Deadline",
+        "body": "Please review and complete the product launch checklist before Friday's scheduled launch.",
+        "label": "relevant",
+        "priority": "urgent",
+        "reason": "User has new product launch on Friday and business partner is active relationship"
+      },
+      {
+        "subject": "Cricket World Cup Live Updates!",
+        "body": "Don't miss live updates from the Cricket World Cup. Subscribe now!",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Cricket updates unrelated to business owner's supplier and client context"
+      },
+      {
+        "subject": "Win a Free iPhone 15!",
+        "body": "You have been selected to win a free iPhone 15. Click here to claim your prize.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Prize spam email unrelated to business context"
+      },
+      {
+        "subject": "Swiggy Instamart: Groceries in 10 Minutes",
+        "body": "Order groceries from Swiggy Instamart and get delivery in 10 minutes. First order free!",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Grocery delivery offer unrelated to business owner's GST filing and client meeting"
+      },
+      {
+        "subject": "Movie Tickets: Book Now for the Weekend",
+        "body": "New blockbuster releases this weekend. Book your tickets now and get 20% off.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Movie tickets unrelated to business owner's urgent supplier and GST deadline context"
+      },
+      {
+        "subject": "Gym: New Year Membership at 50% Off",
+        "body": "Start the new year fit! Get annual gym membership at 50% off this week only.",
+        "label": "not_relevant",
+        "priority": "low",
+        "reason": "Gym membership offer unrelated to business operations and filing deadlines"
+      }
+    ]
+  }
+}

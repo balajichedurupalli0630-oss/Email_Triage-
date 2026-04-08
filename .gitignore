@@ -21,7 +21,7 @@ __pycache__/
 .DS_Store
 
 # Data / Logs
-data/
+# data/ (unignored to track personas.json)
 *.log
 *.sqlite
 *.db
