@@ -27,7 +27,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "openev-core>=0.2.0",
+    "openenv-core>=0.2.0",
     "fastapi>=0.104.0",
     "uvicorn>=0.24.0",
     "openai>=1.0.0",
@@ -57,7 +57,7 @@ Documentation = "https://github.com/yourusername/email-triage-env#readme"
 "Bug Tracker" = "https://github.com/yourusername/email-triage-env/issues"
 
 [project.scripts]
-email-triage-server = "app:main"
+server = "app:main"
 email-triage-eval = "inference:main"
 
 [tool.hatch.build.targets.wheel]
