@@ -228,7 +228,7 @@ async def close_env(session_id: str):
 # ── Entry point ───────────────────────────────────────────
 def main():
     import uvicorn
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("server.app:app", host="0.0.0.0", port=8000, reload=False)
 
 if __name__ == "__main__":
     main()
