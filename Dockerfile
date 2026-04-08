@@ -25,7 +25,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PYTHONFAULTHANDLER=1 \
     PATH="/opt/venv/bin:$PATH" \
-    PORT=8000 \
+    PORT=7860 \
     HOST=0.0.0.0
 
 RUN groupadd -r appuser && useradd -r -g appuser appuser
@@ -41,9 +41,9 @@ COPY --chown=appuser:appuser openenv.yaml docker.yaml ./
 
 USER appuser
 
-EXPOSE 8000
+EXPOSE 7860
 
 HEALTHCHECK --interval=15s --timeout=10s --start-period=5s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)" || exit 1
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:7860/health', timeout=5)" || exit 1
 
-CMD ["uvicorn", "server.app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+CMD ["uvicorn", "server.app:app", "--host", "0.0.0.0", "--port", "7860", "--workers", "1"]
