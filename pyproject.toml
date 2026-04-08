@@ -57,7 +57,7 @@ Documentation = "https://github.com/yourusername/email-triage-env#readme"
 "Bug Tracker" = "https://github.com/yourusername/email-triage-env/issues"
 
 [project.scripts]
-server = "app:main"
+server = "server.app:main"
 email-triage-eval = "inference:main"
 
 [tool.hatch.build.targets.wheel]
@@ -65,7 +65,7 @@ packages = ["."]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "/app.py",
+    "/server/app.py",
     "/email_env.py",
     "/rewards.py",
     "/model.py",

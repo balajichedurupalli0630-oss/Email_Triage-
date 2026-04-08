@@ -566,7 +566,7 @@ class TestEmailTriageEnvLifecycle:
 def client():
     """TestClient using real personas.json via EmailTriageEnv."""
     from fastapi.testclient import TestClient
-    import app as app_module
+    import server.app as app_module
     app_module.sessions.clear()
     tc = TestClient(app_module.app)
     yield tc
