@@ -170,6 +170,38 @@ async def step_env(session_id: str, req: StepRequest):
         info=info,
     )
 
+# ── Global Fallback Endpoints for OpenEnv Validator ──────
+
+DEFAULT_SESSION_ID = "default"
+
+@app.post("/reset", response_model=ResetResponse)
+@app.post("/env/reset", response_model=ResetResponse)
+async def reset_env_global(req: Optional[Dict] = None):
+    """Fallback for standard OpenEnv validation which hits /reset directly."""
+    task_level = "easy"
+    max_emails = 10
+    if req:
+        task_level = req.get("task_level", "easy")
+        max_emails = req.get("max_emails", 10)
+    
+    env = await EmailTriageEnv.from_env(task_level=task_level, max_emails=max_emails)
+    sessions[DEFAULT_SESSION_ID] = env
+    obs = await env.reset()
+    return ResetResponse(
+        observation=obs_to_dict(obs),
+        message="Environment reset."
+    )
+
+@app.post("/step", response_model=StepResponse)
+@app.post("/env/step", response_model=StepResponse)
+async def step_env_global(req: StepRequest):
+    """Fallback for standard OpenEnv validation which hits /step directly."""
+    if DEFAULT_SESSION_ID not in sessions:
+         # Initialize fallback environment
+         env = await EmailTriageEnv.from_env(task_level="easy", max_emails=10)
+         sessions[DEFAULT_SESSION_ID] = env
+    return await step_env(DEFAULT_SESSION_ID, req)
+
 
 @app.get("/env/{session_id}/state")
 async def get_state(session_id: str):
