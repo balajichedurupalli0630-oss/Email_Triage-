@@ -44,7 +44,8 @@ USER appuser
 
 EXPOSE 7860
 
-HEALTHCHECK --interval=15s --timeout=10s --start-period=5s --retries=3 \
+HEALTHCHECK --interval=15s --timeout=10s --start-period=30s --retries=5 \
     CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:7860/health', timeout=5)" || exit 1
 
-CMD ["uvicorn", "server.app:app", "--host", "0.0.0.0", "--port", "7860", "--workers", "1"]
+# Start with explicit Python path and single worker for HF Spaces compatibility
+CMD ["python", "-m", "uvicorn", "server.app:app", "--host", "0.0.0.0", "--port", "7860", "--workers", "1", "--loop", "asyncio"]
