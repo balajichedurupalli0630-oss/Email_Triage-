@@ -83,6 +83,12 @@ def obs_to_dict(obs: Observation) -> dict:
     return obs.model_dump()
 
 # ── Routes ────────────────────────────────────────────────
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+async def root():
+    """Welcome page with simple instructions."""
+    return "<h1>Email Triage API is Running!</h1><p>Visit <a href='/docs'>/docs</a> to see the interactive API documentation and test endpoints.</p>"
 
 @app.get("/health")
 async def health():
